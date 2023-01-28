@@ -21,6 +21,13 @@ import { TbCreditCard } from "react-icons/tb";
 import { VscGift } from "react-icons/vsc";
 import UserAvatar from "./UserAvatar";
 import beauty_logo from "./beauty-face-icon.png";
+import MyProfile from "./MyProfile";
+import MyOrders from "./MyOrders";
+import BeautyProfile from "./BeautyProfile";
+import MyWishList from "./MyWishList";
+import MyCoupons from "./MyCoupons";
+import PurplleCredit from "./PurplleCredit";
+import Payments from "./Payments";
 
 const UserProfile = () => {
   return (
@@ -129,16 +136,28 @@ const UserProfile = () => {
                 </Center>
               </Box>
 
-              <Box border={"0px"}>
+              <Box>
                 <TabPanels>
                   <TabPanel>
-                    <p>one!</p>
+                    <MyProfile />
                   </TabPanel>
                   <TabPanel>
-                    <p>two!</p>
+                    <MyOrders />
                   </TabPanel>
                   <TabPanel>
-                    <p>three!</p>
+                    <BeautyProfile />
+                  </TabPanel>
+                  <TabPanel>
+                    <MyWishList />
+                  </TabPanel>
+                  <TabPanel>
+                    <MyCoupons />
+                  </TabPanel>
+                  <TabPanel>
+                    <PurplleCredit />
+                  </TabPanel>
+                  <TabPanel>
+                    <Payments />
                   </TabPanel>
                 </TabPanels>
               </Box>
