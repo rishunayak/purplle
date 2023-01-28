@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Avatar,
   Box,
   Center,
   Icon,
@@ -19,6 +20,7 @@ import { TiStarburstOutline } from "react-icons/ti";
 import { TbCreditCard } from "react-icons/tb";
 import { VscGift } from "react-icons/vsc";
 import UserAvatar from "./UserAvatar";
+import beauty_logo from "./beauty-face-icon.png";
 
 const UserProfile = () => {
   return (
@@ -41,7 +43,7 @@ const UserProfile = () => {
                 boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
               >
                 <TabList maxH={"fit-content"} mx={"3em"} border={0}>
-                  <SimpleGrid columns={{ base: 3, md: 6 }} spacing={"1rem"}>
+                  <SimpleGrid columns={{ base: 3, md: 7 }} spacing={"1rem"}>
                     <Tab
                       display={"grid"}
                       placeItems={"center"}
@@ -63,6 +65,17 @@ const UserProfile = () => {
                     >
                       <Icon as={VscGift} boxSize={"4em"} />
                       <Text textTransform={"uppercase"}>My Orders</Text>
+                    </Tab>
+                    <Tab
+                      display={"grid"}
+                      placeItems={"center"}
+                      _selected={{
+                        borderColor: "#e40980",
+                        borderBottomWidth: "0.3rem",
+                      }}
+                    >
+                      <Avatar src={beauty_logo} boxSize={"4em"} />
+                      <Text textTransform={"uppercase"}>Beauty Profile</Text>
                     </Tab>
                     <Tab
                       display={"grid"}

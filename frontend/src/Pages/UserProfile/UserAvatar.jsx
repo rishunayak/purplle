@@ -10,7 +10,7 @@ const UserAvatar = () => {
       maxW={"fit-content"}
       pos={"absolute"}
       top={"14%"}
-      left={"40%"}
+      left={"40vw"}
       zIndex={100}
     >
       <Flex alignItems={"center"} gap={"1rem"}>
