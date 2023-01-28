@@ -71,7 +71,7 @@ const Home=()=>{
       };
     return(<div>
         <div>
-        <Carousel responsive={responsive} showDots={true}>
+        <Carousel responsive={responsive}   showDots={true}>
             <div style={{width:"80%",margin:"auto"}}><img width={"100%"} src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2,f-gif/mediafiles/ecomm/misc/1669887376_final-2.5-lacs-women-wishlisted-web.gif" /></div>
             <div style={{width:"80%",margin:"auto"}}><img width={"100%"} src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2,f-gif/mediafiles/ecomm/misc/1673938537_hair-serums-web.gif" /></div>
         </Carousel>
