@@ -6,7 +6,13 @@ import { MdModeEditOutline } from "react-icons/md";
 
 const UserAvatar = () => {
   return (
-    <Container maxW={"fit-content"} pos={"absolute"} top={"14%"} left={"40%"}>
+    <Container
+      maxW={"fit-content"}
+      pos={"absolute"}
+      top={"14%"}
+      left={"40%"}
+      zIndex={100}
+    >
       <Flex alignItems={"center"} gap={"1rem"}>
         <Avatar
           pos={"relative"}
