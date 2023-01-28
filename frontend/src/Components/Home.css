@@ -1,0 +1,58 @@
+
+.react-multiple-carousel__arrow {
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 35px;
+    z-index: 1000;
+    border: 0;
+    background:none;
+    min-width: 43px;
+    min-height: 43px;
+    opacity: 1;
+    cursor: pointer;
+}
+.react-multiple-carousel__arrow::before {
+    font-size: 30px;
+    color: black;
+    display: block;
+    font-family: revicons;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+.react-multiple-carousel__arrow:hover {
+    background: none;
+}
+.react-multiple-carousel__arrow--left {
+    left: calc(10% + 1px);
+}
+.react-multiple-carousel__arrow--right {
+    right: calc(10% + 1px);
+}
+
+.react-multi-carousel-dot--active button {
+    background:#ff147b;
+}
+.react-multi-carousel-dot button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 1;
+    padding: 5px 5px 5px 5px;
+    box-shadow: none;
+    transition: background .5s;
+    border-width: 2px;
+    border-style: solid;
+    border-color: grey;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-right: 6px;
+    outline: 0;
+    cursor: pointer;
+}
+.react-multi-carousel-dot button:hover:active {
+    background: #ff147b;
+}
