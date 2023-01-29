@@ -9,7 +9,7 @@ const initalValue=
     primer:[]
 }
 
-export const PRIMERReducer=(state=initalValue,action)=>
+export const PrimerReducer=(state=initalValue,action)=>
 {
 
     switch(action.type)
