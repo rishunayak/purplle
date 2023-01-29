@@ -18,7 +18,7 @@ export const postFaceWashData=(data)=>dispatch=>
 
 
     dispatch({type:POST_FACE_WASH_REQUEST})
-    return axios.post("https://purplebackend.onrender.com/products/addProduct",data).then(r=>dispatch({type:POST_FACE_WASH_SUCCESS,payload:data}))
+    return axios.post("https://purplebackend.onrender.com/products/addProduct",data).then(r=>dispatch({type:POST_FACE_WASH_SUCCESS,payload:data,msg:r.data}))
     .catch(e=>{dispatch({type:POST_FACE_WASH_FAILURE})})
     
 }
@@ -27,7 +27,7 @@ export const postFaceWashData=(data)=>dispatch=>
 export const patchFaceWashData=(data)=>dispatch=>
 {
     dispatch({type:PATCH_FACE_WASH_REQUEST})
-    return axios.patch(`https://purplebackend.onrender.com/products/edit/${data.id}`,data).then(r=>dispatch({type:PATCH_FACE_WASH_SUCCESS,payload:data}))
+    return axios.patch(`https://purplebackend.onrender.com/products/edit/${data.id}`,data).then(r=>dispatch({type:PATCH_FACE_WASH_SUCCESS,payload:data,msg:r.data}))
     .catch(e=>{dispatch({type:PATCH_FACE_WASH_FAILURE})})
 }
 
@@ -35,7 +35,7 @@ export const deleteFaceWashData=(id)=>dispatch=>
 {
 
     dispatch({type:DELETE_FACE_WASH_REQUEST})
-    return axios.delete(`https://purplebackend.onrender.com/products/deleteProduct/${id}`).then(r=>dispatch({type:DELETE_FACE_WASH_SUCCESS,payload:id}))
+    return axios.delete(`https://purplebackend.onrender.com/products/deleteProduct/${id}`).then(r=>dispatch({type:DELETE_FACE_WASH_SUCCESS,payload:id,msg:r.data}))
     .catch(e=>{dispatch({type:DELETE_FACE_WASH_FAILURE})})
 }
 

@@ -1,6 +1,6 @@
 
 import axios from "axios"
-import { LOGIN_USER_FAILURE, LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "./actionTypes"
+import { GET_USER_FAILURE, GET_USER_REQUEST, GET_USER_SUCCESS, LOGIN_USER_FAILURE, LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "./actionTypes"
 
 export const userRegister=(register)=>dispatch=>
 {   
@@ -18,4 +18,8 @@ export const userLogin=(payload)=>dispatch=>
     return axios.post("https://purplebackend.onrender.com/users/login",payload).then(r=>dispatch({type:LOGIN_USER_SUCCESS,payload:r.data}))
     .catch(e=>{dispatch({type:LOGIN_USER_FAILURE})})
 }
+
+
+
+
 

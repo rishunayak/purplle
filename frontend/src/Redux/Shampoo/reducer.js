@@ -15,18 +15,18 @@ export const ShampooReducer=(state=initalValue,action)=>
     switch(action.type)
     {
         case GET_SHAMPOO_REQUEST : return {...state,isLoading:true};
-        case GET_SHAMPOO_SUCCESS : return {...state,isLoading:false,shampoo:action.payload}
-        case GET_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true}
+        case GET_SHAMPOO_SUCCESS : return {...state,isLoading:false,shampoo:action.payload};
+        case GET_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true};
 
         case POST_SHAMPOO_REQUEST : return {...state,isLoading:true};
         case POST_SHAMPOO_SUCCESS : {
-            let data=[...shampoo,action.payload]
+            let data=[...state.shampoo,action.payload]
             return {...state,isLoading:false,shampoo:data}};
-        case POST_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true}
+        case POST_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true};
         
         case PATCH_SHAMPOO_REQUEST : return {...state,isLoading:true};
         case PATCH_SHAMPOO_SUCCESS : {
-           let data=shampoo.map((ele)=> {
+           let data=state.shampoo.map((ele)=> {
              if(ele._id==action.payload._id)
              {
                 return action.payload
@@ -41,10 +41,13 @@ export const ShampooReducer=(state=initalValue,action)=>
         case PATCH_SHAMPOO_FAILURE: return {...state,isLoading:false,isError:true};
 
         case DELETE_SHAMPOO_REQUEST: return {...state,isLoading:true};
+
         case DELETE_SHAMPOO_SUCCESS: {
-            let data=shampoo.filter((ele)=>ele._id!=action.payload.id)
+             console.log(action.payload,"p")
+            let data=state.shampoo.filter((ele)=>ele._id!=action.payload);
             return {...state,isLoading:false,shampoo:data}
         };
+
         case DELETE_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true};
         default : return state
     }

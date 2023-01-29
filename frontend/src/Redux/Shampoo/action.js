@@ -18,24 +18,28 @@ export const postShampooData=(data)=>dispatch=>
 
 
     dispatch({type:POST_SHAMPOO_REQUEST})
-    return axios.post("https://purplebackend.onrender.com/products/addProduct",data).then(r=>dispatch({type:POST_SHAMPOO_SUCCESS,payload:data}))
-    .catch(e=>{dispatch({type:POST_SHAMPOO_FAILURE})})
+    return axios.post("https://purplebackend.onrender.com/products/addProduct",data,{headers:{token:localStorage.getItem("token")}})
+    .then(r=>dispatch({type:POST_SHAMPOO_SUCCESS,payload:data,msg:r.data}))
+    .catch(e=>dispatch({type:POST_SHAMPOO_FAILURE}))
     
 }
 
 
 export const patchShampooData=(data)=>dispatch=>
 {
+    
     dispatch({type:PATCH_SHAMPOO_REQUEST})
-    return axios.patch(`https://purplebackend.onrender.com/products/edit/${data.id}`,data).then(r=>dispatch({type:PATCH_SHAMPOO_SUCCESS,payload:data}))
-    .catch(e=>{dispatch({type:PATCH_SHAMPOO_FAILURE})})
+    return axios.patch(`https://purplebackend.onrender.com/products/edit/${data._id}`,data,{headers:{"token":localStorage.getItem("token")}})
+    .then((r)=>dispatch({type:PATCH_SHAMPOO_SUCCESS,payload:data,msg:r.data}))
+    .catch(e=>dispatch({type:PATCH_SHAMPOO_FAILURE}))
 }
 
 export const deleteShampooData=(id)=>dispatch=>
 {
 
     dispatch({type:DELETE_SHAMPOO_REQUEST})
-    return axios.delete(`https://purplebackend.onrender.com/products/deleteProduct/${id}`).then(r=>dispatch({type:DELETE_SHAMPOO_SUCCESS,payload:id}))
-    .catch(e=>{dispatch({type:DELETE_SHAMPOO_FAILURE})})
+    return axios.delete(`https://purplebackend.onrender.com/products/deleteProduct/${id}`,{headers:{token:localStorage.getItem("token")}})
+    .then(r=>dispatch({type:DELETE_SHAMPOO_SUCCESS,payload:id,msg:r.data}))
+    .catch(e=>dispatch({type:DELETE_SHAMPOO_FAILURE}))
 }
 

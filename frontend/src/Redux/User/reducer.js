@@ -1,4 +1,4 @@
-import { LOGIN_USER_FAILURE, LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "./actionTypes"
+import { GET_USER_REQUEST, LOGIN_USER_FAILURE, LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "./actionTypes"
 
 
 const initalValue=
@@ -6,7 +6,8 @@ const initalValue=
     isLoading:false,
     isError:false,
     token:localStorage.getItem("token") || "",
-    msg:""
+    msg:"",
+    users:{}
 }
 
 export const AuthReducer=(state=initalValue,action)=>
@@ -26,7 +27,6 @@ export const AuthReducer=(state=initalValue,action)=>
          
          return {...state,isLoading:false,token:action.payload.token}
         case LOGIN_USER_FAILURE : return {...state,isLoading:false,isError:true}
-
         default : return state
     }
 }
