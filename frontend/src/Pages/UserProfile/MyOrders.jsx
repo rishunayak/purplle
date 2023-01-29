@@ -8,7 +8,9 @@ const MyOrders = () => {
       {false || (
         <Box>
           <Image src={noOrderPageLogo} />
-          <Text>Currently there are no orders for the selected time frame</Text>
+          <Text my={"0.8rem"} fontSize={"0.8rem"}>
+            Currently there are no orders for the selected time frame
+          </Text>
           <Button
             px={"2rem"}
             py={"1rem"}
