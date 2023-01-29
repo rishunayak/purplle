@@ -52,7 +52,10 @@ const UserProfile = () => {
                 boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
               >
                 <TabList maxH={"fit-content"} mx={"3em"} border={0}>
-                  <SimpleGrid columns={{ base: 3, md: 7 }} spacing={"1rem"}>
+                  <SimpleGrid
+                    columns={{ base: 3, md: 4, lg: 8 }}
+                    spacing={"1rem"}
+                  >
                     <Tab
                       display={"grid"}
                       placeItems={"center"}
@@ -130,12 +133,23 @@ const UserProfile = () => {
                       <Icon as={TbCreditCard} boxSize={"4em"} />
                       <Text textTransform={"uppercase"}>Payments</Text>
                     </Tab>
+                    <Tab
+                      display={"grid"}
+                      placeItems={"center"}
+                      _selected={{
+                        borderColor: "#e40980",
+                        borderBottomWidth: "0.3rem",
+                      }}
+                    >
+                      <Icon as={BsVectorPen} boxSize={"4em"} />
+                      <Text textTransform={"uppercase"}>Review & Ratings</Text>
+                    </Tab>
                   </SimpleGrid>
                 </TabList>
-                <Center display={"grid"} placeItems={"center"} py={"1rem"}>
+                {/* <Center display={"grid"} placeItems={"center"} py={"1rem"}>
                   <Icon as={BsVectorPen} boxSize={"4em"} />
                   <Text textTransform={"uppercase"}>Review & Ratings</Text>
-                </Center>
+                </Center> */}
               </Box>
 
               <Box>
