@@ -17,7 +17,7 @@ const ReviewRatings = () => {
   return (
     <Box>
       <Tabs>
-        <TabList>
+        <TabList border={0}>
           <Tab
             fontWeight={600}
             textTransform={"uppercase"}

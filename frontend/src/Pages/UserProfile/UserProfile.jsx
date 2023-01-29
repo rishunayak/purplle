@@ -154,25 +154,25 @@ const UserProfile = () => {
                   <TabPanel px={0} py={"2em"}>
                     <MyProfile />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <MyOrders />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <BeautyProfile />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <MyWishList />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <MyCoupons />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={0}>
                     <PurplleCredit />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <Payments />
                   </TabPanel>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <ReviewRatings />
                   </TabPanel>
                 </TabPanels>
