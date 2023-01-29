@@ -28,6 +28,7 @@ import MyWishList from "./MyWishList";
 import MyCoupons from "./MyCoupons";
 import PurplleCredit from "./PurplleCredit";
 import Payments from "./Payments";
+import ReviewRatings from "./ReviewRatings";
 
 const UserProfile = () => {
   return (
@@ -146,10 +147,6 @@ const UserProfile = () => {
                     </Tab>
                   </SimpleGrid>
                 </TabList>
-                {/* <Center display={"grid"} placeItems={"center"} py={"1rem"}>
-                  <Icon as={BsVectorPen} boxSize={"4em"} />
-                  <Text textTransform={"uppercase"}>Review & Ratings</Text>
-                </Center> */}
               </Box>
 
               <Box>
@@ -174,6 +171,9 @@ const UserProfile = () => {
                   </TabPanel>
                   <TabPanel>
                     <Payments />
+                  </TabPanel>
+                  <TabPanel>
+                    <ReviewRatings />
                   </TabPanel>
                 </TabPanels>
               </Box>
