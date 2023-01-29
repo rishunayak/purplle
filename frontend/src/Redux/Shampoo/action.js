@@ -8,7 +8,7 @@ export const getShampooData=()=>dispatch=>
 
 
     dispatch({type:GET_SHAMPOO_REQUEST})
-    return axios.get("https://purplebackend.onrender.com/products/shampoo").then(r=>dispatch({type:GET_SHAMPOO_SUCCESS,payload:r.data}))
+    return axios.get("https://purplebackend.onrender.com/products/shampoo").then((r)=>{console.log(r.data);dispatch({type:GET_SHAMPOO_SUCCESS,payload:r.data})})
     .catch(e=>{dispatch({type:GET_SHAMPOO_FAILURE})})
     
 }

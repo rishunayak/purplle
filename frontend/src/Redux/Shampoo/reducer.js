@@ -11,10 +11,11 @@ const initalValue=
 
 export const ShampooReducer=(state=initalValue,action)=>
 {
+
     switch(action.type)
     {
         case GET_SHAMPOO_REQUEST : return {...state,isLoading:true};
-        case GET_SHAMPOO_SUCCESS : return {...state,isLoading:false,shampoo:r.data}
+        case GET_SHAMPOO_SUCCESS : return {...state,isLoading:false,shampoo:action.payload}
         case GET_SHAMPOO_FAILURE : return {...state,isLoading:false,isError:true}
 
         case POST_SHAMPOO_REQUEST : return {...state,isLoading:true};
@@ -25,7 +26,7 @@ export const ShampooReducer=(state=initalValue,action)=>
         
         case PATCH_SHAMPOO_REQUEST : return {...state,isLoading:true};
         case PATCH_SHAMPOO_SUCCESS : {
-           let data=data.map((ele)=> {
+           let data=shampoo.map((ele)=> {
              if(ele._id==action.payload._id)
              {
                 return action.payload
