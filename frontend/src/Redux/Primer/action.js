@@ -8,7 +8,7 @@ export const getPrimerData=()=>dispatch=>
 
 
     dispatch({type:GET_PRIMER_REQUEST})
-    return axios.get("https://purplebackend.onrender.com/products/primer").then((r)=>{console.log(r.data);dispatch({type:GET_PRIMER_SUCCESS,payload:r.data})})
+    return axios.get("https://purplebackend.onrender.com/products/primer").then((r)=>{dispatch({type:GET_PRIMER_SUCCESS,payload:r.data})})
     .catch(e=>{dispatch({type:GET_PRIMER_FAILURE})})
     
 }

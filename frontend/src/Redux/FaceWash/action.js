@@ -8,7 +8,7 @@ export const getFaceWashData=()=>dispatch=>
 
 
     dispatch({type:GET_FACE_WASH_REQUEST})
-    return axios.get("https://purplebackend.onrender.com/products/FACE_WASH").then((r)=>{console.log(r.data);dispatch({type:GET_FACE_WASH_SUCCESS,payload:r.data})})
+    return axios.get("https://purplebackend.onrender.com/products/faceWash").then((r)=>{dispatch({type:GET_FACE_WASH_SUCCESS,payload:r.data})})
     .catch(e=>{dispatch({type:GET_FACE_WASH_FAILURE})})
     
 }
