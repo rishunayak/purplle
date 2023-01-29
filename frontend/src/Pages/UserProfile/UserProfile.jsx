@@ -34,7 +34,9 @@ const UserProfile = () => {
     <Box>
       <Stack pos={"relative"}>
         <Box h="6em"></Box>
-        <UserAvatar />
+        <Center>
+          <UserAvatar />
+        </Center>
         <Box h="10em" bg={"#e40980"} pos={"relative"}>
           <Stack
             pos={"absolute"}
@@ -138,7 +140,7 @@ const UserProfile = () => {
 
               <Box>
                 <TabPanels>
-                  <TabPanel>
+                  <TabPanel px={0} py={"2em"}>
                     <MyProfile />
                   </TabPanel>
                   <TabPanel>
