@@ -14,7 +14,8 @@
 }
 .react-multiple-carousel__arrow::before {
     font-size: 30px;
-    color: black;
+    font-weight: bold;
+    color: #566770;
     display: block;
     font-family: revicons;
     text-align: center;
@@ -25,10 +26,10 @@
     background: none;
 }
 .react-multiple-carousel__arrow--left {
-    left: calc(10% + 1px);
+    left: calc(0% + 1px);
 }
 .react-multiple-carousel__arrow--right {
-    right: calc(10% + 1px);
+    right: calc(0% + 1px);
 }
 
 .react-multi-carousel-dot--active button {
