@@ -7,12 +7,16 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 import { cartData } from "./data";
 
 const Cart = () => {
-  const cartTotal = cartData.reduce((acc, item) => acc + item.price, 0);
+  let cartTotal = cartData.reduce((acc, item) => acc + +item.price, 0);
+
+  const cartItemsNum = cartData.length;
+
   return (
     <Box
       maxW={{
@@ -52,12 +56,12 @@ const Cart = () => {
           flex="2"
         >
           <Heading fontSize="2xl" fontWeight="extrabold">
-            Shopping Cart (3 items)
+            Shopping Cart ({cartItemsNum} items)
           </Heading>
 
           <Stack spacing="6">
             {cartData.map((item) => (
-              <CartItem key={item.id} {...item} />
+              <CartItem key={item._id} {...item} />
             ))}
           </Stack>
         </Stack>
