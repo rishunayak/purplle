@@ -9,7 +9,7 @@ const initalValue=
     shampoo:[]
 }
 
-export const AuthReducer=(state=initalValue,action)=>
+export const ShampooReducer=(state=initalValue,action)=>
 {
     switch(action.type)
     {
