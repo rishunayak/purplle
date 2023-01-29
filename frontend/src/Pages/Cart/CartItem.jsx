@@ -7,30 +7,12 @@ import {
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
-const QuantitySelect = (props) => {
-  return (
-    <Select
-      maxW="64px"
-      aria-label="Select quantity"
-      focusBorderColor={useColorModeValue("#e30970", "#e30970")}
-      {...props}
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </Select>
-  );
-};
 
 export const CartItem = (props) => {
   const {
-    isGiftWrapping,
-    name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
+    product_name,
+    d_price,
+    image,
     price,
     onChangeQuantity,
     onClickDelete,
@@ -44,12 +26,7 @@ export const CartItem = (props) => {
       justify="space-between"
       align="center"
     >
-      <CartProductMeta
-        name={name}
-        description={description}
-        image={imageUrl}
-        isGiftWrapping={isGiftWrapping}
-      />
+      <CartProductMeta name={product_name} image={image} />
 
       {/* Desktop */}
       <Flex
@@ -60,15 +37,9 @@ export const CartItem = (props) => {
           md: "flex",
         }}
       >
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
-        />
         <PriceTag price={price} />
         <CloseButton
-          aria-label={`Delete ${name} from cart`}
+          aria-label={`Delete ${product_name} from cart`}
           onClick={onClickDelete}
         />
       </Flex>
@@ -87,13 +58,8 @@ export const CartItem = (props) => {
         <Link fontSize="sm" textDecor="underline">
           Delete
         </Link>
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
-        />
-        <PriceTag price={price} currency={currency} />
+
+        <PriceTag price={price} />
       </Flex>
     </Flex>
   );
