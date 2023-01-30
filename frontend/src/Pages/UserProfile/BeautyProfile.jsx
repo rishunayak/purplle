@@ -1,14 +1,17 @@
 import {
   Avatar,
   AvatarBadge,
-  AvatarGroup,
   Box,
   Button,
+  Center,
   Container,
   Flex,
+  Image,
+  Progress,
   SimpleGrid,
   Stack,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -16,7 +19,26 @@ const BeautyProfile = () => {
   return (
     <Box display={"grid"} rowGap={"4em"}>
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
+          <Center w={"25%"}>
+            <Image
+              w={"100%"}
+              src={
+                "https://media6.ppl-media.com/mediafiles/ecomm/misc/1496136454_female-color.png"
+              }
+              alt={"female_logo"}
+            />
+          </Center>
+          <Container w={"25%"} py={"2em"}>
+            <Tooltip label="100%" hasArrow>
+              <Progress value={100} size="xs" colorScheme="purple" />
+            </Tooltip>
+          </Container>
+        </Container>
+      </Stack>
+
+      <Stack>
+        <Container maxW={"7xl"}>
           <Text>Describe your complexion (Choose any one)</Text>
           <Flex
             my={"1.5em"}
@@ -52,7 +74,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>How Would You Classify Your Hair ? (Choose any one)</Text>
           <Flex
             my={"1.5em"}
@@ -88,7 +110,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>Describe Your Hair (Choose any one)</Text>
           <Flex
             my={"1.5em"}
@@ -126,7 +148,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>
             Which Hair Issues Would You Like To Conquer? (Choose all that apply)
           </Text>
@@ -166,7 +188,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>Your Scalp Concern. (Choose all that apply)</Text>
           <Flex
             my={"1.5em"}
@@ -204,7 +226,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>How Would You Classify Your Skin ? (Choose any one)</Text>
           <Flex
             my={"1.5em"}
@@ -242,7 +264,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>
             Which skin issues would you like to conquer? (Choose all that apply)
           </Text>
@@ -263,9 +285,7 @@ const BeautyProfile = () => {
                   <Avatar name={item.label} src={item.icon} size={"xl"}>
                     <AvatarBadge />
                   </Avatar>
-                  <Text display={"flex"} flexWrap={"wrap"} textAlign={"center"}>
-                    {item.label}
-                  </Text>
+                  <Text textAlign={"center"}>{item.label}</Text>
                 </SimpleGrid>
               );
             })}
@@ -282,7 +302,7 @@ const BeautyProfile = () => {
       </Stack>
 
       <Stack>
-        <Container maxW={"5xl"}>
+        <Container maxW={"7xl"}>
           <Text>Your Style Preference (Choose any one.)</Text>
           <Flex
             my={"1.5em"}
