@@ -1,14 +1,10 @@
 
-import Cart from './Pages/Cart/Cart';
-import Home from './Components/Home';
-import UserProfile from './Pages/UserProfile/UserProfile';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Cart/>
-      {/* <Home/> */}
-      {/* <UserProfile /> */}
+
     </div>
   );
 }
