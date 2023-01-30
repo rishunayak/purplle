@@ -34,5 +34,6 @@ export const deleteCart=(productId)=>dispatch=>
     return axios.patch("https://purplebackend.onrender.com/carts/delete",{productId:productId},{headers:{token:localStorage.getItem("token")}})
     .then(r=>dispatch({type:DELETE_CART_SUCCESS,payload:productId,msg:r.data}))
     .catch(r=>dispatch({type:DELETE_CART_FAILURE}))
+
 }
 
