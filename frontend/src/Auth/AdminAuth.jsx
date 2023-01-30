@@ -9,6 +9,7 @@ const AdminAuth = ({children}) => {
     useEffect(()=>
     {
       dispatch(getUserInfo())
+      
     },[])
     
     if(user?.isAdmin)
