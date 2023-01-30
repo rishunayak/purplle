@@ -13,7 +13,7 @@ import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 import { BsCartX } from "react-icons/bs";
 import { cartData } from "./data";
-import "./Cart.css"
+import "./Cart.css";
 
 const Cart = () => {
   const cartItemsNum = cartData.products.length;
