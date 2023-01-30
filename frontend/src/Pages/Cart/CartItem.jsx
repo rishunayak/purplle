@@ -21,7 +21,7 @@ export const CartItem = (props) => {
     onClickDelete,
   } = props;
 
-  console.log(_id)
+  console.log(_id);
   return (
     <Flex
       direction={{
@@ -91,7 +91,12 @@ export const CartItem = (props) => {
           Delete
         </Link>
 
-        <PriceTag price={price} />
+        <PriceTag
+          quantity={quantity}
+          offer={offer}
+          price={price}
+          d_price={d_price}
+        />
       </Flex>
     </Flex>
   );

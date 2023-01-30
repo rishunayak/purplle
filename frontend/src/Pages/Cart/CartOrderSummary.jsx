@@ -55,7 +55,7 @@ export const CartOrderSummary = ({ cartTotal }) => {
           value={cartTotal}
         ></OrderSummaryItem>
         <OrderSummaryItem label="Coupon Code">
-          <Button variant='link' ref={btnRef} onClick={onOpen}>
+          <Button color="black" textDecoration='underline' fontSize="14px" variant='link' ref={btnRef} onClick={onOpen}>
             Add coupon code
           </Button>
         </OrderSummaryItem>
