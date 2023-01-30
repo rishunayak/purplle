@@ -8,7 +8,9 @@ import {
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { getCart } from "../../Redux/Cart/action";
+import {useDispatch,useSelector} from "react-redux"
+import { useEffect, useState } from "react";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 import { BsCartX } from "react-icons/bs";
@@ -16,16 +18,22 @@ import { cartData } from "./data";
 import "./Cart.css";
 
 const Cart = () => {
-  const cartItemsNum = cartData.products.length;
+
+  const dispatch = useDispatch()
+  const {isLoading,isError,cart} = useSelector((store)=>store.CartReducer)
+  useEffect(()=>{
+    dispatch(getCart())
+  },[])
+
+  const cartItemsNum = cart?.length;
   let cartTotal;
-  if (cartItemsNum) {
-    cartTotal =
-      cartData.products &&
-      cartData.products.reduce(
-        (acc, item) => acc + +item.product.price * +item.quantity,
-        0
-      );
-  }
+  // if (cartItemsNum) {
+  //   cartTotal =
+  //     cart?.reduce(
+  //       (acc, item) => acc + +item.product.d_price * +item.quantity,
+  //       0
+  //     );
+  // }
 
   return (
     <>
@@ -79,12 +87,12 @@ const Cart = () => {
               </Heading>
 
               <Stack spacing="6">
-                {cartData.products &&
-                  cartData.products.map((item) => (
+                {cart?.map((item) => (
                     <CartItem
                       key={item.product._id}
                       {...item.product}
                       quantity={item.quantity}
+                      productId={item._id}
                     />
                   ))}
               </Stack>
