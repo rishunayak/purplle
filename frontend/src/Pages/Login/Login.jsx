@@ -50,7 +50,7 @@ const Login = () => {
     },[token])
   return (
     <>
-    <Button bg="#60f" p="0px 40px"  color={"white"} _hover={{bg:"#60f"}} onClick={onOpen}>Login</Button>
+    <Button bg="#60f" size='xs' color={"white"} p="10px 40px" _hover={{bg:"#60f"}} onClick={onOpen}>Login</Button>
     <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

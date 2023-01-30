@@ -54,8 +54,8 @@ const Register = () => {
           <ModalHeader fontSize={"25px"}>Register</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-          <Input type={"text"} placeholder="Enter your Name" value={register.register} onChange={(e)=>setRegister({...register,name:e.target.value})} isRequired/>
-            <Input type={"email"} placeholder="Enter your Email" value={register.register} onChange={(e)=>setRegister({...register,email:e.target.value})} mt="5px" isRequired/>
+          <Input type={"text"} placeholder="Enter your Name" value={register.name} onChange={(e)=>setRegister({...register,name:e.target.value})} isRequired/>
+            <Input type={"email"} placeholder="Enter your Email" value={register.email} onChange={(e)=>setRegister({...register,email:e.target.value})} mt="5px" isRequired/>
             <Input type={"password"} placeholder="Enter your Password" mt="5px" register={register.password} onChange={(e)=>setRegister({...register,password:e.target.value})} isRequired/>
           </ModalBody>
 

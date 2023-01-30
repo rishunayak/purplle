@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {Heading,Avatar,Box, chakra,Center, SimpleGrid,Image,  Stat,Flex,StatLabel,Text, StatNumber,Stack,Button,useColorModeValue,useToast} from '@chakra-ui/react';
+import {Heading,Avatar,Box, chakra,Center, SimpleGrid,Image,  Stat,Flex,StatLabel,Text, StatNumber,Stack,Button,useColorModeValue,useToast, useSlider} from '@chakra-ui/react';
 import { BsPerson } from 'react-icons/bs';
 import { MdProductionQuantityLimits } from 'react-icons/md';
 import { BiPurchaseTag } from 'react-icons/bi';
@@ -9,6 +9,7 @@ import { getAllUser } from '../../Redux/AllUser/action';
 import { getPrimerData } from '../../Redux/Primer/action';
 import { getFaceWashData } from '../../Redux/FaceWash/action';
 import { getShampooData } from '../../Redux/Shampoo/action';
+import { getAllOrder } from '../../Redux/AdminOrderDetails/actions';
 
 
 
@@ -20,6 +21,7 @@ const AdminHome = () => {
   const {primer}=useSelector((store)=>store.PrimerReducer)
   const {faceWash}=useSelector((store)=>store.FaceWashReducer)
   const {shampoo}=useSelector((store)=>store.ShampooReducer)
+  const {allOrder,userOrder}=useSelector((store)=>store.UserOrderReducer)
 
   const toast = useToast()
   useEffect(()=>
@@ -28,6 +30,7 @@ const AdminHome = () => {
      dispatch(getAllUser())
      dispatch(getFaceWashData())
      dispatch(getShampooData())
+     dispatch(getAllOrder())
    
   },[])
 
@@ -95,6 +98,9 @@ const AdminHome = () => {
         </Box>
       </Flex>
     </Stat>
+    
+
+
 
 
     <Stat
@@ -107,10 +113,38 @@ const AdminHome = () => {
       <Flex justifyContent={'space-between'}>
         <Box pl={{ base: 2, md: 4 }}>
           <StatLabel fontWeight={'medium'} isTruncated>
-            Ordered Today
+            Total Users Ordered
           </StatLabel>
           <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
-            3
+            {userOrder}
+          </StatNumber>
+        </Box>
+        <Box
+          my={'auto'}
+          color={useColorModeValue('gray.800', 'gray.200')}
+          alignContent={'center'}>
+          <BiPurchaseTag size={"30px"}/>
+        </Box>
+      </Flex>
+    </Stat>
+
+
+
+
+    <Stat
+      px={{ base: 2, md: 4 }}
+      py={'5'}
+      shadow={'xl'}
+      border={'1px solid'}
+      borderColor={useColorModeValue('gray.800', 'gray.500')}
+      rounded={'lg'}>
+      <Flex justifyContent={'space-between'}>
+        <Box pl={{ base: 2, md: 4 }}>
+          <StatLabel fontWeight={'medium'} isTruncated>
+            Total Orders
+          </StatLabel>
+          <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
+            {allOrder}
           </StatNumber>
         </Box>
         <Box
