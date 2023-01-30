@@ -13,9 +13,12 @@ import { CartOrderSummary } from "./CartOrderSummary";
 import { cartData } from "./data";
 
 const Cart = () => {
-  let cartTotal = cartData.reduce((acc, item) => acc + +item.price, 0);
+  let cartTotal = cartData.products.reduce(
+    (acc, item) => acc + +item.product.price * +item.quantity,
+    0
+  );
 
-  const cartItemsNum = cartData.length;
+  const cartItemsNum = cartData.products.length;
 
   return (
     <Box
@@ -60,8 +63,12 @@ const Cart = () => {
           </Heading>
 
           <Stack spacing="6">
-            {cartData.map((item) => (
-              <CartItem key={item._id} {...item} />
+            {cartData.products.map((item) => (
+              <CartItem
+                key={item.product._id}
+                {...item.product}
+                quantity={item.quantity}
+              />
             ))}
           </Stack>
         </Stack>
