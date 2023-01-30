@@ -6,15 +6,27 @@ import {
   FormLabel,
   Heading,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Radio,
   RadioGroup,
+  Select,
   SimpleGrid,
   Stack,
+  Textarea,
+  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { MdArrowDropDown } from "react-icons/md";
 
 const MyProfile = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box>
       <SimpleGrid columns={{ base: 1, md: 2 }} gridGap={"2em"}>
@@ -80,6 +92,7 @@ const MyProfile = () => {
               borderRadius={"0.2rem"}
               colorScheme={"purple"}
               textTransform={"uppercase"}
+              onClick={onOpen}
             >
               Add Address
             </Button>
@@ -123,6 +136,132 @@ const MyProfile = () => {
           </Flex>
         </Box>
       </SimpleGrid>
+
+      <Modal size={"xl"} isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader textTransform={"uppercase"}>Add Address</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody display={"grid"} rowGap="1rem">
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 100px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+              isRequired
+            >
+              <FormLabel>Name</FormLabel>
+              <Select icon={<MdArrowDropDown />} variant={"flushed"}>
+                <option value={"Mr"}>Mr.</option>
+                <option value={"Ms"}>Ms.</option>
+              </Select>
+              <Input type="text" variant={"flushed"} />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+              isRequired
+            >
+              <FormLabel>Pin Code</FormLabel>
+              <Input type="text" variant={"flushed"} placeholder="Pin Code" />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+              isRequired
+            >
+              <FormLabel>Address</FormLabel>
+              <Textarea
+                resize={"horizontal"}
+                variant={"flushed"}
+                placeholder="Address"
+              ></Textarea>
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+            >
+              <FormLabel>Landmark</FormLabel>
+              <Input type="text" variant={"flushed"} placeholder="Landmark" />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+            >
+              <FormLabel>City</FormLabel>
+              <Input type="text" variant={"flushed"} placeholder="City" />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+            >
+              <FormLabel>State</FormLabel>
+              <Input type="text" variant={"flushed"} placeholder="State" />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+            >
+              <FormLabel>Country</FormLabel>
+              <Select variant={"flushed"}>
+                <option value="India">
+                  INDIA (SERVIVE AVAILABLE ONLY IN INDIA)
+                </option>
+              </Select>
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 1fr"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+              isRequired
+            >
+              <FormLabel>Mobile No</FormLabel>
+              <Input type="text" variant={"flushed"} placeholder="Mobile No" />
+            </FormControl>
+
+            <FormControl
+              display={"grid"}
+              gridTemplateColumns={"120px 100px"}
+              columnGap={"0.5rem"}
+              alignItems={"center"}
+            >
+              <FormLabel>Address Type</FormLabel>
+              <Select variant={"flushed"}>
+                <option value="Home">Home</option>
+                <option value="Office">Office</option>
+                <option value="Others">Others</option>
+              </Select>
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="purple" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Save</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
