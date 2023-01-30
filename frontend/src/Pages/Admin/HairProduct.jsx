@@ -46,7 +46,7 @@ const HairProduct = () => {
     const handleDelete=(id)=>
     {
        dispatch(deleteShampooData(id)).then((r)=>{
-          console.log(r)
+         
         if(r.msg.msg)
         {
           toast({

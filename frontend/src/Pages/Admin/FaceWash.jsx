@@ -43,6 +43,34 @@ const FaceWash = () => {
           }
         })}
 
+        const handleDelete=(id)=>
+    {
+       dispatch(deleteShampooData(id)).then((r)=>{
+         
+        if(r.msg.msg)
+        {
+          toast({
+            title: 'Product',
+            description: r.msg.msg,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
+        
+        }
+        else
+        {
+          toast({
+            title: 'Error',
+            description: r.msg,
+            status: 'error',
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+      })
+    }
+
         if(isLoading)
         {
           return (<Stack w={"90%"} m="auto" mt={"50px"}>
@@ -82,7 +110,7 @@ const FaceWash = () => {
     <Grid  gridTemplateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(2,1fr)","repeat(3,1fr)","repeat(4,1fr)"]} maxW={["95%","95%","95%","90%"]}  m="auto" mb={"50px"} gap="30px 10px">
       
       {
-        faceWash?.map((ele,i)=><SingleCard product={ele} key={i} handleEdit={handleEdit}/>)
+        faceWash?.map((ele,i)=><SingleCard product={ele} key={i} handleEdit={handleEdit} handleDelete={handleDelete}/>)
       }
     
     </Grid>
