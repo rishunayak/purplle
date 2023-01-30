@@ -43,7 +43,6 @@ export default function AddressForm() {
             name="lastName"
             render={({ field }) => (
               <TextField
-                required
                 id="lastName"
                 label="Last name"
                 fullWidth

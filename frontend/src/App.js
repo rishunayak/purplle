@@ -7,7 +7,7 @@ import Checkout from './Pages/Checkout/Copyright';
 function App() {
   return (
     <div className="App">
-      <UserProfile /> 
+      {/* <UserProfile />  */}
       <Checkout />
     </div>
   );
