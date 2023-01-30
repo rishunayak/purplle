@@ -26,7 +26,7 @@ export const CartProductMeta = (props) => {
       />
       <Box pt="4">
         <Stack spacing="0.5">
-          <Text fontWeight="medium">{name}</Text>
+          <Text fontWeight="medium" >{name}</Text>
         </Stack>
       </Box>
     </Stack>

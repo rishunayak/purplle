@@ -45,6 +45,7 @@ export const CartReducer=(state=initalValue,action)=>
                     return ele
                 }
             })
+            console.log(updateCart,"u")
             return {...state,isLoading:false,cart:updateCart};
         }
         case DELETE_CART_FAILURE : return {...state,isLoading:false,isError:true};
