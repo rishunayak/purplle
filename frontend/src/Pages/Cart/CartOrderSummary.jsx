@@ -28,19 +28,20 @@ const OrderSummaryItem = (props) => {
       <Text fontWeight="medium" color={mode("#e30970", "#e30970")}>
         {label}
       </Text>
-      {value ? <Text fontWeight="medium">{value}</Text> : children}
+      {value ? <Text fontWeight="medium">₹{value}</Text> : children}
     </Flex>
   );
 };
 
 export const CartOrderSummary = ({ cartTotal }) => {
+  // console.log(couponData)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);
   const [coupon, setCoupon] = useState(null);
 
   const applyCoupon = () => {
     onClose();
-    console.log(coupon);
+    // console.log(coupon);
   };
 
   return (
@@ -54,7 +55,7 @@ export const CartOrderSummary = ({ cartTotal }) => {
           value={cartTotal}
         ></OrderSummaryItem>
         <OrderSummaryItem label="Coupon Code">
-          <Button ref={btnRef} onClick={onOpen}>
+          <Button color="black" textDecoration='underline' fontSize="14px" variant='link' ref={btnRef} onClick={onOpen}>
             Add coupon code
           </Button>
         </OrderSummaryItem>
@@ -117,7 +118,7 @@ export const CartOrderSummary = ({ cartTotal }) => {
             Total
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-            {cartTotal}
+          ₹{cartTotal}
           </Text>
         </Flex>
       </Stack>
