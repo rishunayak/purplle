@@ -1,4 +1,4 @@
-import { Box, Heading, Skeleton, Stack, useToast } from '@chakra-ui/react'
+import { Box, Heading, Skeleton, Stack, Text, useToast } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -54,6 +54,12 @@ const UserDetails = () => {
    
   return (
     <>
+      <Box border={"1px solid "} w={"fit-content"} m="auto"  mt="30px" p="20px 40px" borderRadius={"16px"}>
+        <Text fontSize={"20px"} fontWeight="bold" textAlign={"center"}>User</Text>
+         <Text fontSize={"20px"} fontWeight="500" textAlign={"center"}>{order.id?.name}</Text> 
+         <Text  fontSize={"18px"} fontWeight="500" textAlign={"center"}>{order.id?.email}</Text>
+          
+      </Box>
         
         <Box>
 
