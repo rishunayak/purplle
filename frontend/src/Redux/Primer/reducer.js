@@ -20,13 +20,13 @@ export const PrimerReducer=(state=initalValue,action)=>
 
         case POST_PRIMER_REQUEST : return {...state,isLoading:true};
         case POST_PRIMER_SUCCESS : {
-            let data=[...primer,action.payload]
+            let data=[...state.primer,action.payload]
             return {...state,isLoading:false,primer:data}};
         case POST_PRIMER_FAILURE : return {...state,isLoading:false,isError:true}
         
         case PATCH_PRIMER_REQUEST : return {...state,isLoading:true};
         case PATCH_PRIMER_SUCCESS : {
-           let data=primer.map((ele)=> {
+           let data=state.primer.map((ele)=> {
              if(ele._id==action.payload._id)
              {
                 return action.payload
@@ -42,7 +42,7 @@ export const PrimerReducer=(state=initalValue,action)=>
 
         case DELETE_PRIMER_REQUEST: return {...state,isLoading:true};
         case DELETE_PRIMER_SUCCESS: {
-            let data=primer.filter((ele)=>ele._id!=action.payload.id)
+            let data=state.primer.filter((ele)=>ele._id!=action.payload.id)
             return {...state,isLoading:false,primer:data}
         };
         case DELETE_PRIMER_FAILURE : return {...state,isLoading:false,isError:true};

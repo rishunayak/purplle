@@ -20,13 +20,13 @@ export const FaceWashReducer=(state=initalValue,action)=>
 
         case POST_FACE_WASH_REQUEST : return {...state,isLoading:true};
         case POST_FACE_WASH_SUCCESS : {
-            let data=[...faceWash,action.payload]
+            let data=[...state.faceWash,action.payload]
             return {...state,isLoading:false,faceWash:data}};
         case POST_FACE_WASH_FAILURE : return {...state,isLoading:false,isError:true}
         
         case PATCH_FACE_WASH_REQUEST : return {...state,isLoading:true};
         case PATCH_FACE_WASH_SUCCESS : {
-           let data=faceWash.map((ele)=> {
+           let data=state.faceWash.map((ele)=> {
              if(ele._id==action.payload._id)
              {
                 return action.payload
@@ -42,7 +42,7 @@ export const FaceWashReducer=(state=initalValue,action)=>
 
         case DELETE_FACE_WASH_REQUEST: return {...state,isLoading:true};
         case DELETE_FACE_WASH_SUCCESS: {
-            let data=faceWash.filter((ele)=>ele._id!=action.payload.id)
+            let data=state.faceWash.filter((ele)=>ele._id!=action.payload.id)
             return {...state,isLoading:false,faceWash:data}
         };
         case DELETE_FACE_WASH_FAILURE : return {...state,isLoading:false,isError:true};

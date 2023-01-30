@@ -18,7 +18,7 @@ export const CartReducer=(state=initalValue,action)=>
   
         case POST_CART_REQUEST : return {...state,isLoading:true};
         case POST_CART_SUCCESS : {
-            let updateCart=[...cart,action.payload];
+            let updateCart=[...state.cart,action.payload];
             return {...state,isLoading:false,cart:updateCart};
         };
         case POST_CART_FAILURE : return {...state,isLoading:false,isError:true};
