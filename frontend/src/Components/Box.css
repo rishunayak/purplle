@@ -1,15 +1,19 @@
 .cartbutton{
-    background-color: #2c414c;
-    color: white;
-    position: absolute !important;
-    z-index: 10;
-    top: 438px;
-    letter-spacing: 1px;
     padding: 5px 0px;
     padding-bottom: 3px;
-    
+    display: block;
     text-align: center;
-    display: none;
+    position: absolute !important;
+    top: 300px;
+    left: 0;
+    right: 0;
+    background-color: #2c414c;
+    margin: 0 auto;
+    z-index: 10;
+    color: #fff;
+    opacity: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .item:hover .cartbutton{
     display: block;
