@@ -49,24 +49,7 @@ app.get("/primer",async(req,res)=>
 })
 
 
-// app.get("/Shampoo",async(req,res)=>
-// {
 
-
-//     let filter={category:"trending"}
-
-//         try
-//         {
-//            const data=await Product.find(filter)
-//            res.send(data)
-//         }
-//         catch(e)
-//         {
-//             res.send(e)
-//         }
-    
-   
-// })
 
 
 
@@ -221,14 +204,17 @@ app.delete("/deleteProduct/:id",async(req,res)=>
 
 app.patch("/edit/:id",async(req,res)=>
 {
+   
     try
     {
        const id=req.params.id
-       await Product.findOneAndUpdate({_id:id},req.body);
+       console.log(id)
+       await Product.findOneAndUpdate({_id:id},{...req.body});
        res.send({msg:"Product Updated Successfully"})
     }
     catch(e)
     {
+        console.log(e);
         res.send(e)
     }
 })
