@@ -4,10 +4,12 @@ import {
   Link,
   Select,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
-
+import { useDispatch } from "react-redux";
+import {deleteCart, patchCart} from "../../Redux/Cart/action"
 export const CartItem = (props) => {
   const {
     _id,
@@ -19,9 +21,65 @@ export const CartItem = (props) => {
     quantity,
     onChangeQuantity,
     onClickDelete,
+    productId
   } = props;
+  const dispatch=useDispatch()
+  const toast = useToast()
+  const handleChange=(quantity)=>
+  {
+    dispatch(patchCart({productId:productId,quantity:+quantity})).then(r=>
+      {
+        if(r.msg.msg)
+        {
+          toast({
+            title: 'Cart',
+            description: r.msg.msg,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+        else
+        {
+          toast({
+            title: 'Error',
+            description: r.msg,
+            status: 'error',
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+      })
+  }
 
-  console.log(_id);
+
+  const handleDelete=()=>
+  {
+      dispatch(deleteCart(productId)).then(r=>
+        {
+          if(r.msg.msg)
+          {
+            toast({
+              title: 'Cart',
+              description: r.msg.msg,
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            })
+          }
+          else
+          {
+            toast({
+              title: 'Error',
+              description: r.msg,
+              status: 'error',
+              duration: 9000,
+              isClosable: true,
+            })
+          }
+        })
+  }
+
   return (
     <Flex
       direction={{
@@ -47,6 +105,7 @@ export const CartItem = (props) => {
           maxW="64px"
           aria-label="Select quantity"
           focusBorderColor={useColorModeValue("pink.500", "pink.200")}
+          onChange={(e)=>handleChange(e.target.value)}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -61,7 +120,7 @@ export const CartItem = (props) => {
         />
         <CloseButton
           aria-label={`Delete ${product_name} from cart`}
-          onClick={onClickDelete}
+          onClick={handleDelete}
         />
       </Flex>
 
