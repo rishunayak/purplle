@@ -7,7 +7,7 @@ const initalValue={
     order:[]
 }
 
-export const OrderREducer=(state=initalValue,action)=>
+export const OrderReducer=(state=initalValue,action)=>
 {
     switch(action.type)
     {
