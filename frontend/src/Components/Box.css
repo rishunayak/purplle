@@ -1,0 +1,46 @@
+.cartbutton{
+    background-color: #2c414c;
+    color: white;
+    letter-spacing: 1px;
+    padding: 5px 0px;
+    padding-bottom: 3px;
+    
+    text-align: center;
+    display: none;
+}
+.item:hover .cartbutton{
+    display: block;
+}
+.price{
+    text-decoration: line-through;
+    font-size: 12px;
+    padding-top: 5px;
+    color: #cdcad9;
+}
+.offer{
+    color: red;
+}
+.rating{
+    padding: 1px 5px;
+    border-radius: 15px;
+    font-size: 12px;
+    background-color: #298B39;
+    color: white;
+}
+.ratingcount{
+    color: #cdcad9;
+}
+.Productsname{
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.pricerating{
+    display: flex;
+    gap: 5px;
+
+}
+.img{
+    width: 200px;
+    height: 200px;
+}
