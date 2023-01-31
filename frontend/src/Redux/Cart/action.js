@@ -15,7 +15,7 @@ export const postCart=(data)=>dispatch=>
 {
     dispatch({type:POST_CART_REQUEST})
     return axios.post("https://purplebackend.onrender.com/carts/addToCart",{product:data},{headers:{token:localStorage.getItem("token")}})
-    .then(r=>dispatch({type:POST_CART_SUCCESS,payload:product,msg:r.data}))
+    .then(r=>dispatch({type:POST_CART_SUCCESS,msg:r.data}))
     .catch(e=>dispatch({type:POST_CART_FAILURE}))
 }
 
