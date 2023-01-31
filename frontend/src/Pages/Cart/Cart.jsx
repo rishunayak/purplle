@@ -4,6 +4,7 @@ import {
   Heading,
   HStack,
   Link,
+  Spinner,
   Stack,
   Text,
   useColorModeValue as mode,
@@ -28,13 +29,13 @@ const Cart = () => {
   const toast = useToast()
   const cartItemsNum = cart?.length;
   let cartTotal;
-  // if (cartItemsNum) {
-  //   cartTotal =
-  //     cart?.reduce(
-  //       (acc, item) => acc + +item.product.d_price * +item.quantity,
-  //       0
-  //     );
-  // }
+  if (cartItemsNum) {
+    cartTotal =
+      cart?.reduce(
+        (acc, item) => acc + +item.product.d_price * +item.quantity,
+        0
+      );
+  }
 
 
 
@@ -96,6 +97,20 @@ const Cart = () => {
           }
           console.log(r)
         })
+  }
+
+  if (isLoading) {
+    return (
+      <Box mt="100px" display="flex"  justifyContent="center" alignItems="center" >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="pink.500"
+          size="xl"
+        />
+      </Box>
+    );
   }
 
   return (
