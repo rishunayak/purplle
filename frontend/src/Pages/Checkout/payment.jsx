@@ -3,16 +3,65 @@ import {Link, useNavigate} from 'react-router-dom'
 import './pay.css'
 import { useState } from "react";
  import PaymentNav from './PaymentNav'
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteAllCart, getCart } from '../../Redux/Cart/action';
+import { postOrder } from '../../Redux/Order/action';
+import {Skeleton, Stack } from '@chakra-ui/react'
+import { useEffect } from 'react';
 function Payment() {
-
+  const dispatch=useDispatch()
+  const {isLoading,isError,cart,id}=useSelector((store)=>store.CartReducer)
+  useEffect(()=>
+  {
+        dispatch(getCart())
+  },[])
 
   const navigate= useNavigate()
   const payNavigate=()=>{
+  
+  
+      dispatch(postOrder(cart))
+      dispatch(deleteAllCart(id))
+   
     navigate("/payment")
   }
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [mob, setMob] = useState('')
+
+  if(isLoading)
+        {
+          return (<Stack w={"90%"} m="auto" mt={"50px"}>
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+            <Skeleton height='20px' />
+          </Stack>)
+        }
+
   return (
 
 

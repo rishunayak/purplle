@@ -12,7 +12,7 @@ import {
 } from './util'
 
 import 'react-credit-cards/es/styles-compiled.css'
-import { useNavigate } from 'react-router-dom';
+
 
 export default class Pay extends React.Component {
   
@@ -50,9 +50,12 @@ export default class Pay extends React.Component {
 
     this.setState({ [target.name]: target.value })
   }
+  
+
 
   handleSubmit = e => {
     e.preventDefault()
+   
     alert(`You have finished payment!`)
     this.form.reset()
     // navigate("/")
