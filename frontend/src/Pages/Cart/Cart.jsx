@@ -19,6 +19,7 @@ import { BsCartX } from "react-icons/bs";
 import { cartData } from "./data";
 import "./Cart.css";
 
+
 const Cart = () => {
   const dispatch = useDispatch();
   const { isLoading, isError, cart } = useSelector(
@@ -29,6 +30,7 @@ const Cart = () => {
   }, []);
   const toast = useToast();
   const cartItemsNum = cart?.length;
+  
   let cartTotal;
   if (cartItemsNum) {
     cartTotal = cart?.reduce(
@@ -36,6 +38,7 @@ const Cart = () => {
       0
     );
   }
+  
 
   const handleChange = (data) => {
     console.log(data);
@@ -83,6 +86,8 @@ const Cart = () => {
       console.log(r);
     });
   };
+
+ 
 
   if (isLoading) {
     return (

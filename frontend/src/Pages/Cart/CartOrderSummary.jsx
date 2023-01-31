@@ -33,17 +33,18 @@ const OrderSummaryItem = (props) => {
   );
 };
 
-export const CartOrderSummary = ({ cartTotal }) => {
+export const CartOrderSummary = ({
+  cartTotal,
+  handleDiscount,
+  discount,
+  setDiscount,
+}) => {
   // console.log(couponData)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);
   const [coupon, setCoupon] = useState(null);
 
-  const applyCoupon = () => {
-    onClose();
-    // console.log(coupon);
-  };
-
+ 
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -54,11 +55,18 @@ export const CartOrderSummary = ({ cartTotal }) => {
           label="Shipping + Tax(Free Delivery)"
           value={cartTotal}
         ></OrderSummaryItem>
-        <OrderSummaryItem label="Coupon Code">
-          <Button color="black" textDecoration='underline' fontSize="14px" variant='link' ref={btnRef} onClick={onOpen}>
+        {/* <OrderSummaryItem label="Coupon Code"> */}
+          {/* <Button
+            color="black"
+            textDecoration="underline"
+            fontSize="14px"
+            variant="link"
+            ref={btnRef}
+            onClick={onOpen}
+          >
             Add coupon code
-          </Button>
-        </OrderSummaryItem>
+          </Button> */}
+        {/* </OrderSummaryItem> */}
         <Modal
           onClose={onClose}
           finalFocusRef={btnRef}
@@ -104,7 +112,7 @@ export const CartOrderSummary = ({ cartTotal }) => {
               </RadioGroup>
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="green" mr={1} onClick={applyCoupon}>
+              <Button colorScheme="green" mr={1} >
                 Apply
               </Button>
               <Button onClick={onClose} colorScheme="red">
@@ -118,7 +126,7 @@ export const CartOrderSummary = ({ cartTotal }) => {
             Total
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-          ₹{cartTotal}
+            ₹{cartTotal}
           </Text>
         </Flex>
       </Stack>
