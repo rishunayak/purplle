@@ -32,14 +32,15 @@ Purplle is a one stop solution for all your favourite beauty products, that too 
 
 💫Tech & Tools Used :
 
-For Frontend : React , Javascript , Redux , React-credit-cards , React-dom , React-hot-toast , React-icons , React-multi-carousel , React-redux , React-router-dom,
-               React-scripts , Redux-thunk,.
-For Backend : Mongo DB , NodeJS , Express
+Frontend Tech Stack: ReactJs , Javascript , React-credit-cards , React-dom , React-hot-toast , React-icons , React-multi-carousel , React-redux , React-router-dom, React-scripts , Redux , Redux-thunk , Chakra-UI , etc.
 
+Backend Tech Stack: Mongo DB , NodeJs and ExpressJs
 
-Tools Used: Netlify.
 ---
-Deployed Link for Frontend : https://snazzy-cranachan-14966f.netlify.app/
+
+#### Deployment:
+
+Deployed Link for Frontend (Live!) : https://snazzy-cranachan-14966f.netlify.app/
 
 ---
 
