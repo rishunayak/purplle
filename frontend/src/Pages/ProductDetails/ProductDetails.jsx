@@ -15,12 +15,45 @@ import {
   VisuallyHidden,
   List,
   ListItem,
+  Select,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+
 import { MdLocalShipping } from "react-icons/md";
 import { product } from "./DummyProduct";
 
+import React from "react";
+import { BsStar } from "react-icons/bs";
+import { FaRegStar } from "react-icons/fa";
+import { SlStar } from "react-icons/sl";
+
+const StarRating = (props) => {
+  const rating = props.rating;
+  let stars = [];
+  for (let i = 0; i < 5; i++) {
+    if (i < rating) {
+      stars.push(
+        <span key={i} role="img" aria-label="star">
+          ⭐
+        </span>
+      );
+    } else {
+      stars.push(
+        <span key={i} role="img" aria-label="star">
+          <SlStar />
+        </span>
+      );
+    }
+  }
+  return (
+    <Flex textAlign="center" alignItems="center" mr="10px">
+      {stars}
+    </Flex>
+  );
+};
+
 export default function ProductDetails() {
+  const handleChange = () => {};
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -29,7 +62,6 @@ export default function ProductDetails() {
         py={{ base: 18, md: 24 }}
       >
         <Flex>
-          
           <Image
             rounded={"md"}
             alt={"product image"}
@@ -49,16 +81,21 @@ export default function ProductDetails() {
             >
               {product.product_name}
             </Heading>
-            
+            <Flex>
+              <StarRating rating={product.rating}  />
+              <Text>{product.rating}stars</Text>|
+              <Text>{product.rating_count}</Text>
+            </Flex>
+
             <Stack>
-              <Text fontWeight="semibold" fontSize="2xl">
+              <Text mt="10px" fontWeight="semibold" fontSize="2xl">
                 ₹{product.d_price}
               </Text>
               <Box
                 display="flex"
                 gap="10px"
-                justifyContent="flex-end"
-                alignContent="flex-end"
+                justifyContent="flex-start"
+                alignContent="flex-start"
               >
                 <Text fontSize="14px" textDecorationLine="line-through">
                   ₹{product.price}
@@ -67,6 +104,22 @@ export default function ProductDetails() {
                   {product.offer}
                 </Text>
               </Box>
+              <Select
+                maxW="64px"
+                aria-label="Select quantity"
+                focusBorderColor={useColorModeValue("pink.500", "pink.200")}
+                // onChange={(e) =>
+                //   handleChange({
+                //     productId: item._id,
+                //     quantity: +e.target.value,
+                //   })
+                // }
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </Select>
             </Stack>
           </Box>
 
