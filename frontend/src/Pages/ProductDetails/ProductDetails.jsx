@@ -29,6 +29,7 @@ import { SlStar } from "react-icons/sl";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { IoReturnDownBack } from "react-icons/io5";
 import { FaWallet } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 const StarRating = (props) => {
   const rating = props.rating;
@@ -56,6 +57,10 @@ const StarRating = (props) => {
 };
 
 export default function ProductDetails() {
+  const dispatch = useDispatch()
+  const handleCartButton=()=>{
+    
+  }
   const handleChange = () => {};
   return (
     <Container maxW={"7xl"}>
@@ -86,7 +91,7 @@ export default function ProductDetails() {
             </Heading>
             <Flex>
               <StarRating rating={product.rating} />
-              <Text>{product.rating}stars</Text> | 
+              <Text>{product.rating}stars</Text> |
               <Text>{product.rating_count}</Text>
             </Flex>
 
@@ -127,6 +132,7 @@ export default function ProductDetails() {
           </Box>
 
           <Button
+          onClick={handleCartButton}
             rounded={"none"}
             w={"full"}
             mt={8}
