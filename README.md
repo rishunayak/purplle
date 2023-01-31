@@ -20,6 +20,9 @@ Purplle is an operator of an online beauty shopping store created to buy skincar
 <h5>Shipping Page</h5>
 <img width="700px" src="https://i.imgur.com/5QZ0kfL.png "/>
 
+<h5>Profile Page</h5>
+<img width="700px" src="https://i.imgur.com/cfgO2hg.jpg" />
+
 This is a Group project completed by 6 members
 ---
 💫Tech & Tools Used :
