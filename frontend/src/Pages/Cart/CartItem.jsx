@@ -4,37 +4,25 @@ import {
   Link,
   Select,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
-const QuantitySelect = (props) => {
-  return (
-    <Select
-      maxW="64px"
-      aria-label="Select quantity"
-      focusBorderColor={useColorModeValue("#e30970", "#e30970")}
-      {...props}
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </Select>
-  );
-};
-
-export const CartItem = (props) => {
+import { useDispatch } from "react-redux";
+import {deleteCart, patchCart} from "../../Redux/Cart/action"
+export const CartItem = ({item,handleChange,handleDelete}) => {
   const {
-    isGiftWrapping,
-    name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
+    _id,
+    product_name,
+    d_price,
+    image,
     price,
-    onChangeQuantity,
-    onClickDelete,
-  } = props;
+    offer,
+  } = item.product;
+  const dispatch=useDispatch()
+  const toast = useToast()
+  
+
   return (
     <Flex
       direction={{
@@ -44,12 +32,7 @@ export const CartItem = (props) => {
       justify="space-between"
       align="center"
     >
-      <CartProductMeta
-        name={name}
-        description={description}
-        image={imageUrl}
-        isGiftWrapping={isGiftWrapping}
-      />
+      <CartProductMeta name={product_name} image={image} />
 
       {/* Desktop */}
       <Flex
@@ -60,16 +43,27 @@ export const CartItem = (props) => {
           md: "flex",
         }}
       >
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
+        <Select
+          defaultValue={item.quantity}
+          maxW="64px"
+          aria-label="Select quantity"
+          focusBorderColor={useColorModeValue("pink.500", "pink.200")}
+          onChange={(e)=>handleChange({productId:item._id,quantity:+e.target.value})}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </Select>
+        <PriceTag
+          quantity={item.quantity}
+          offer={offer}
+          price={price}
+          d_price={d_price}
         />
-        <PriceTag price={price} />
         <CloseButton
-          aria-label={`Delete ${name} from cart`}
-          onClick={onClickDelete}
+          aria-label={`Delete ${product_name} from cart`}
+          onClick={()=>handleDelete(item._id)}
         />
       </Flex>
 
@@ -84,16 +78,28 @@ export const CartItem = (props) => {
           md: "none",
         }}
       >
+        <Select
+          value={item.quantity}
+          maxW="64px"
+          aria-label="Select quantity"
+          focusBorderColor={useColorModeValue("pink.500", "pink.200")}
+          onChange={(e)=>handleChange({productId:item._id,quantity:+e.target.value})}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </Select>
         <Link fontSize="sm" textDecor="underline">
           Delete
         </Link>
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
+
+        <PriceTag
+          quantity={item.quantity}
+          offer={offer}
+          price={price}
+          d_price={d_price}
         />
-        <PriceTag price={price} currency={currency} />
       </Flex>
     </Flex>
   );
