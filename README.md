@@ -1,7 +1,7 @@
 ✨Purplle.com-Clone✨
 ---
 Purplle is an operator of an online beauty shopping store created to buy skincare products based on people's hair and skin type and other personal choices.
-<img src=""/>
+<img src="https://drive.google.com/file/d/1Fe-oHn7HWwF7wc1wJgM6N2U4pud9JrxE/view"/>
 <img src=""/>
 
 
