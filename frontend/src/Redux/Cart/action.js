@@ -7,7 +7,7 @@ export const  getCart=()=>dispatch=>
 {
     dispatch({type:GET_CART_REQUEST})
     return axios.get("https://purplebackend.onrender.com/carts",{headers:{token:localStorage.getItem("token")}})
-    .then(r=>dispatch({type:GET_CART_SUCCESS,payload:r.data.products}))
+    .then(r=>dispatch({type:GET_CART_SUCCESS,payload:r.data}))
     .catch(e=>dispatch({type:GET_CART_FAILURE}))
 }
 

@@ -4,7 +4,8 @@ import { DELETE_ALL_CART_FAILURE, DELETE_ALL_CART_REQUEST, DELETE_ALL_CART_SUCCE
 const initalValue={
     isLoading:false,
     isError:false,
-    cart:[]
+    cart:[],
+    id:""
 }
 
 export const CartReducer=(state=initalValue,action)=>
@@ -12,7 +13,7 @@ export const CartReducer=(state=initalValue,action)=>
     switch(action.type)
     {
         case GET_CART_REQUEST : return {...state,isLoading:true};
-        case GET_CART_SUCCESS:return {...state,isLoading:false,cart:action.payload};
+        case GET_CART_SUCCESS:return {...state,isLoading:false,cart:action.payload.products,id:action.payload._id};
         case GET_CART_FAILURE : return {...state,isLoading:false,isError:true};
         
   
