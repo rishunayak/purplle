@@ -21,10 +21,16 @@ export const postCart=(product)=>dispatch=>
 
 export const patchCart=({productId,quantity})=>dispatch=>
 {
+    console.log(productId,quantity)
     dispatch({type:PATCH_CART_REQUEST})
     return axios.patch("https://purplebackend.onrender.com/carts/update",{productId,quantity},{headers:{token:localStorage.getItem("token")}})
     .then(r=>dispatch({type:PATCH_CART_SUCCESS,payload:{productId,quantity},msg:r.data}))
     .catch(e=>dispatch({type:PATCH_CART_FAILURE}))
+}
+
+const update=()=>
+{
+  return 
 }
 
 export const deleteCart=(productId)=>dispatch=>
@@ -32,8 +38,8 @@ export const deleteCart=(productId)=>dispatch=>
    
     dispatch({type:DELETE_CART_REQUEST})
     return axios.patch("https://purplebackend.onrender.com/carts/delete",{productId:productId},{headers:{token:localStorage.getItem("token")}})
-    .then(r=>dispatch({type:DELETE_CART_SUCCESS,payload:productId,msg:r.data}))
-    .catch(r=>dispatch({type:DELETE_CART_FAILURE}))
+    .then(r=>{dispatch(getCart());return {msg:"Product Delete Succssfully"}})
+    .catch(r=>console.log(r))
 
 }
 

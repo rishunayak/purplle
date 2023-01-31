@@ -39,13 +39,13 @@ export const CartReducer=(state=initalValue,action)=>
    
         case DELETE_CART_REQUEST : return {...state,isLoading:true};
         case DELETE_CART_SUCCESS : {
-            let updateCart=state.cart.map(ele=>{
-                if(ele._id!=action.payload)
-                {
-                    return ele
-                }
-            })
-            return {...state,isLoading:false,cart:updateCart};
+            // let updateCart=state.cart.map(ele=>{
+            //     if(ele._id!=action.payload)
+            //     {
+            //         return ele
+            //     }
+            // })
+            return {...state,isLoading:false};
         }
         case DELETE_CART_FAILURE : return {...state,isLoading:false,isError:true};
 
