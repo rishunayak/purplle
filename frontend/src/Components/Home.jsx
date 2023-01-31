@@ -179,7 +179,7 @@ const Home = () => {
     },
   };
   return (
-    <div style={{marginLeft:"9%",marginRight:"9%"}}>
+    <div style={{marginLeft:"9%",marginRight:"9%",marginTop:"180px"}}>
       <div>
         <Carousel responsive={responsive} showDots={true} removeArrowOnDeviceType={["tablet", "mobile"]} autoPlay={true} autoPlaySpeed={1000}  customTransition="all .5"
   transitionDuration={500}>

@@ -4,6 +4,9 @@
     justify-content: space-between;
     margin-bottom: 40px;
 }
+.icons{
+    font-size: 30px;
+}
 .FooterBox2{
     display: flex;
     align-items: center;
@@ -14,7 +17,7 @@
 .FooterBox2 div{
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 10px;
 }
 @media(max-width: 1281px) {
     .FooterBox2{

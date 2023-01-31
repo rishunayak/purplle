@@ -4,13 +4,14 @@ import {
   Heading,
   HStack,
   Link,
+  Spinner,
   Stack,
   Text,
   useColorModeValue as mode,
   useToast,
 } from "@chakra-ui/react";
 import { deleteCart, getCart, patchCart } from "../../Redux/Cart/action";
-import {useDispatch,useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
@@ -18,84 +19,93 @@ import { BsCartX } from "react-icons/bs";
 import { cartData } from "./data";
 import "./Cart.css";
 
+
 const Cart = () => {
-
-  const dispatch = useDispatch()
-  const {isLoading,isError,cart} = useSelector((store)=>store.CartReducer)
-  useEffect(()=>{
-    dispatch(getCart())
-  },[])
-  const toast = useToast()
+  const dispatch = useDispatch();
+  const { isLoading, isError, cart } = useSelector(
+    (store) => store.CartReducer
+  );
+  useEffect(() => {
+    dispatch(getCart());
+  }, []);
+  const toast = useToast();
   const cartItemsNum = cart?.length;
+  
   let cartTotal;
-  // if (cartItemsNum) {
-  //   cartTotal =
-  //     cart?.reduce(
-  //       (acc, item) => acc + +item.product.d_price * +item.quantity,
-  //       0
-  //     );
-  // }
-
-
-
-
-
-  const handleChange=(data)=>
-  {
-    console.log(data)
-    dispatch(patchCart(data)).then(r=>
-      {
-        if(r.msg.msg)
-        {
-          toast({
-            title: 'Cart',
-            description: r.msg.msg,
-            status: 'success',
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-        else
-        {
-          toast({
-            title: 'Error',
-            description: r.msg,
-            status: 'error',
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-        console.log(r)
-      })
+  if (cartItemsNum) {
+    cartTotal = cart?.reduce(
+      (acc, item) => acc + +item.product.d_price * +item.quantity,
+      0
+    );
   }
+  
 
+  const handleChange = (data) => {
+    console.log(data);
+    dispatch(patchCart(data)).then((r) => {
+      if (r.msg.msg) {
+        toast({
+          title: "Cart",
+          description: r.msg.msg,
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: r.msg,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      console.log(r);
+    });
+  };
 
-  const handleDelete=(productId)=>
-  {
-      dispatch(deleteCart(productId)).then(r=>
-        {
-          if(r.msg)
-          {
-            toast({
-              title: 'Cart',
-              description: r.msg,
-              status: 'success',
-              duration: 9000,
-              isClosable: true,
-            })
-          }
-          else
-          {
-            toast({
-              title: 'Error',
-              description: r.msg,
-              status: 'error',
-              duration: 9000,
-              isClosable: true,
-            })
-          }
-          console.log(r)
-        })
+  const handleDelete = (productId) => {
+    dispatch(deleteCart(productId)).then((r) => {
+      if (r.msg) {
+        toast({
+          title: "Cart",
+          description: r.msg,
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: r.msg,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
+      console.log(r);
+    });
+  };
+
+ 
+
+  if (isLoading) {
+    return (
+      <Box
+        mt="100px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="pink.500"
+          size="xl"
+        />
+      </Box>
+    );
   }
 
   return (
@@ -150,14 +160,14 @@ const Cart = () => {
               </Heading>
 
               <Stack spacing="6">
-                {cart?.map((item,i) => (
-                    <CartItem
-                      key={i}
-                      item={item}
-                      handleChange={handleChange}
-                      handleDelete={handleDelete}
-                    />
-                  ))}
+                {cart?.map((item, i) => (
+                  <CartItem
+                    key={i}
+                    item={item}
+                    handleChange={handleChange}
+                    handleDelete={handleDelete}
+                  />
+                ))}
               </Stack>
             </Stack>
 
