@@ -46,7 +46,7 @@ Deployed Link for Frontend (Live!) : https://snazzy-cranachan-14966f.netlify.app
 
 #### Contributors:
 
-This project has been built by the following 6 members:
+This project has been built by the following 5 members:
  - Rishu kumar Nayak
  - Sai
  - Vivek Rana
