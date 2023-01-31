@@ -1,5 +1,6 @@
 import { Divider , Link} from '@chakra-ui/react'
 import "./Footer.css"
+import {AiFillTwitterCircle,AiFillFacebook , AiFillGooglePlusCircle , AiTwotoneMail , AiFillYoutube , AiFillInstagram , AiFillLinkedin} from "react-icons/ai"
 
 function Footer(){
     return(<div style={{paddingLeft:"10%",paddingRight:"10%",color:"#6c7e96"}}>
@@ -37,7 +38,13 @@ function Footer(){
                 </div>
                 <div style={{marginBottom:"10px"}}>
                     <h1><b>CONNECT</b></h1>
-                    <img src="https://media6.ppl-media.com/mediafiles/ecomm/promo/1499177379_tt.jpg" alt="logo" />
+                    <div><AiFillFacebook color='blue' className='icons' /></div>
+                    <div><AiFillTwitterCircle color='#00abf0' className='icons'/></div>
+                    <div><AiFillGooglePlusCircle color='#ed3833'className='icons' /></div>
+                    <div><AiTwotoneMail color='#555555' className='icons'/></div>
+                    <div><AiFillYoutube color='#ed3833' className='icons'/></div>
+                    <div><AiFillInstagram color='#e91b90' className='icons' /></div>
+                    <div><AiFillLinkedin color='#397db3' className='icons'/></div>
                 </div>
             </div>
         </div>
