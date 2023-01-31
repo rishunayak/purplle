@@ -1,11 +1,24 @@
 ✨Purplle.com-Clone✨
 ---
 Purplle is an operator of an online beauty shopping store created to buy skincare products based on people's hair and skin type and other personal choices.
+<br/>
+<img width="700px" src="https://i.imgur.com/VZkMo6P.png"/>
+
+<h5>Sign up Page</h5>
+<img width="700px" src="https://i.imgur.com/9NfuO21.png "/>
+
+<h5>Login Page</h5>
+<img width="700px" src="https://i.imgur.com/aag4mV6.png "/>
+
+<h5>Product Page</h5>
+<img width="700px" src="https://i.imgur.com/NS1e8tL.png "/>
+
+<h5>Cart Page</h5>
+<img width="700px" src="https://i.imgur.com/GTPPwh7.png"/>
 
 
-<img src="" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFgdX3AAStUlkFm-mVjkSGUiO4Jt7yrA27qg&usqp=CAU" />
-
-
+<h5>Shipping Page</h5>
+<img width="700px" src="https://i.imgur.com/5QZ0kfL.png "/>
 
 This is a Group project completed by 6 members
 ---
