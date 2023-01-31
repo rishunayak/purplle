@@ -26,6 +26,9 @@ import React from "react";
 import { BsStar } from "react-icons/bs";
 import { FaRegStar } from "react-icons/fa";
 import { SlStar } from "react-icons/sl";
+import { IoShieldCheckmarkSharp } from "react-icons/io5";
+import { IoReturnDownBack } from "react-icons/io5";
+import { FaWallet } from "react-icons/fa";
 
 const StarRating = (props) => {
   const rating = props.rating;
@@ -82,8 +85,8 @@ export default function ProductDetails() {
               {product.product_name}
             </Heading>
             <Flex>
-              <StarRating rating={product.rating}  />
-              <Text>{product.rating}stars</Text>|
+              <StarRating rating={product.rating} />
+              <Text>{product.rating}stars</Text> | 
               <Text>{product.rating_count}</Text>
             </Flex>
 
@@ -143,6 +146,18 @@ export default function ProductDetails() {
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
             <MdLocalShipping />
             <Text>2-3 business days delivery</Text>
+          </Stack>
+          <Stack direction="row" alignItems="center" justifyContent={"center"}>
+            <IoShieldCheckmarkSharp />
+            <Text>100% Genuine Products</Text>
+          </Stack>
+          <Stack direction="row" alignItems="center" justifyContent={"center"}>
+            <IoReturnDownBack />
+            <Text>Return in 15 days</Text>
+          </Stack>
+          <Stack direction="row" alignItems="center" justifyContent={"center"}>
+            <FaWallet />
+            <Text>Free COD above 499</Text>
           </Stack>
         </Stack>
       </SimpleGrid>
