@@ -1,10 +1,56 @@
 import React from "react";
-import { Avatar, Container, Flex, Text, Tooltip } from "@chakra-ui/react";
+import { Avatar, Container, Flex, Skeleton, Stack, Text, Tooltip } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
 import { BsCamera } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userInfo } from "../../Redux/User/action";
 
 const UserAvatar = () => {
+   
+  const dispatch=useDispatch()
+  
+  const {isLoading,isError,user}=useSelector((store)=>store.AuthReducer)
+
+  useEffect(()=>
+  {
+    dispatch(userInfo())
+  },[])
+
+  if(isLoading)
+  {
+    return (<Stack w={"90%"} m="auto" mt={"50px"}>
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+      <Skeleton height='20px' />
+    </Stack>)
+  }
+
   return (
     <Container
       maxW={"fit-content"}
@@ -36,7 +82,7 @@ const UserAvatar = () => {
             />
           </Avatar>
         </Tooltip>
-        <Text fontWeight={"bold"}>User email</Text>
+        <Text fontWeight={"bold"}>{user.email}</Text>
         <Icon as={MdModeEditOutline} />
       </Flex>
     </Container>

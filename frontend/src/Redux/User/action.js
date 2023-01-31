@@ -20,6 +20,15 @@ export const userLogin=(payload)=>dispatch=>
 }
 
 
+export const userInfo=()=>dispatch=>
+{
+    dispatch({type:GET_USER_REQUEST})
+    return axios.get("https://purplebackend.onrender.com/users",{headers:{token:localStorage.getItem("token")}})
+    .then(r=>dispatch({type:GET_USER_SUCCESS,payload:r.data}))
+    .catch(r=>dispatch({type:GET_USER_FAILURE}))
+}
+
+
 
 
 

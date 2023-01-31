@@ -12,7 +12,7 @@ export const OrderReducer=(state=initalValue,action)=>
     switch(action.type)
     {
         case GET_ORDER_REQUEST : return {...state,isLoading:true}
-        case GET_ORDER_SUCCESS : return {...state,isLoading:false,order:action.payload.products}
+        case GET_ORDER_SUCCESS : return {...state,isLoading:false,order:action.payload}
         case GET_ORDER_FAILURE : return {...state,isLoading:false,isError:true}
 
         case POST_ORDER_REQUEST : return {...state,isLoading:true}
