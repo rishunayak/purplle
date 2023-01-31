@@ -10,14 +10,11 @@ import Footer from './Components/Footer';
 import Products from './Components/Products';
 
 
+
+
 function App() {
   return (
-    <div className="App">
-      {/*<Navbar1/>*/}
-      <Products/>
-      {/*<Home/>*/}
-      {/*<UserProfile />*/}
-    </div>
+
   );
 }
 
