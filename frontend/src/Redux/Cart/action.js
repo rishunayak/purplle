@@ -1,5 +1,5 @@
 import axios from "axios"
-import { DELETE_CART_FAILURE, DELETE_CART_REQUEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUEST, POST_CART_SUCCESS } from "./actionTypes"
+import { DELETE_ALL_CART_REQUEST, DELETE_ALL_CART_SUCCESS, DELETE_CART_FAILURE, DELETE_CART_REQUEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUEST, POST_CART_SUCCESS } from "./actionTypes"
 
 
 
@@ -11,10 +11,10 @@ export const  getCart=()=>dispatch=>
     .catch(e=>dispatch({type:GET_CART_FAILURE}))
 }
 
-export const postCart=(product)=>dispatch=>
+export const postCart=(data)=>dispatch=>
 {
     dispatch({type:POST_CART_REQUEST})
-    return axios.post("https://purplebackend.onrender.com/carts/addToCart",product,{headers:{token:localStorage.getItem("token")}})
+    return axios.post("https://purplebackend.onrender.com/carts/addToCart",{product:data},{headers:{token:localStorage.getItem("token")}})
     .then(r=>dispatch({type:POST_CART_SUCCESS,payload:product,msg:r.data}))
     .catch(e=>dispatch({type:POST_CART_FAILURE}))
 }
@@ -28,10 +28,6 @@ export const patchCart=({productId,quantity})=>dispatch=>
     .catch(e=>dispatch({type:PATCH_CART_FAILURE}))
 }
 
-const update=()=>
-{
-  return 
-}
 
 export const deleteCart=(productId)=>dispatch=>
 {
@@ -43,3 +39,10 @@ export const deleteCart=(productId)=>dispatch=>
 
 }
 
+export const deleteAllCart=(id)=>dispatch=>
+{
+    dispatch({type:DELETE_ALL_CART_REQUEST})
+    return axios.delete(`https://purplebackend.onrender.com/carts/removeCart`,{cartId:id})
+    .then(r=>dispatch({type:DELETE_ALL_CART_SUCCESS}))
+    .catch(e=>dispatch({type:DELETE_CART_FAILURE}))
+}

@@ -1,4 +1,4 @@
-import { DELETE_CART_FAILURE, DELETE_CART_REQUEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUEST, POST_CART_SUCCESS } from "./actionTypes"
+import { DELETE_ALL_CART_FAILURE, DELETE_ALL_CART_REQUEST, DELETE_ALL_CART_SUCCESS, DELETE_CART_FAILURE, DELETE_CART_REQUEST, DELETE_CART_SUCCESS, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, PATCH_CART_FAILURE, PATCH_CART_REQUEST, PATCH_CART_SUCCESS, POST_CART_FAILURE, POST_CART_REQUEST, POST_CART_SUCCESS } from "./actionTypes"
 
 
 const initalValue={
@@ -49,6 +49,9 @@ export const CartReducer=(state=initalValue,action)=>
         }
         case DELETE_CART_FAILURE : return {...state,isLoading:false,isError:true};
 
+        case DELETE_ALL_CART_REQUEST : return {...state,isLoading:true}
+        case DELETE_ALL_CART_SUCCESS : return {...state,isLoading:false,cart:initalValue.cart}
+        case DELETE_ALL_CART_FAILURE : return {...state,isLoading:false,isError:true}
         default : return state
     }
 }
