@@ -3,8 +3,8 @@
 Purplle is an operator of an online beauty shopping store created to buy skincare products based on people's hair and skin type and other personal choices.
 
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-UzdJy05D5Hixu5_Y6cDAxVo9BL4dOIscUg&usqp=CAU" />
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFgdX3AAStUlkFm-mVjkSGUiO4Jt7yrA27qg&usqp=CAU" />
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-UzdJy05D5Hixu5_Y6cDAxVo9BL4dOIscUg&usqp=CAU" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFgdX3AAStUlkFm-mVjkSGUiO4Jt7yrA27qg&usqp=CAU" />
+
 
 
 This is a Group project completed by 6 members
