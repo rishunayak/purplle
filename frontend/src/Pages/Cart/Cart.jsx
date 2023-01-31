@@ -7,8 +7,9 @@ import {
   Stack,
   Text,
   useColorModeValue as mode,
+  useToast,
 } from "@chakra-ui/react";
-import { getCart } from "../../Redux/Cart/action";
+import { deleteCart, getCart, patchCart } from "../../Redux/Cart/action";
 import {useDispatch,useSelector} from "react-redux"
 import { useEffect, useState } from "react";
 import { CartItem } from "./CartItem";
@@ -24,7 +25,7 @@ const Cart = () => {
   useEffect(()=>{
     dispatch(getCart())
   },[])
-
+  const toast = useToast()
   const cartItemsNum = cart?.length;
   let cartTotal;
   // if (cartItemsNum) {
@@ -34,6 +35,68 @@ const Cart = () => {
   //       0
   //     );
   // }
+
+
+
+
+
+  const handleChange=(data)=>
+  {
+    console.log(data)
+    dispatch(patchCart(data)).then(r=>
+      {
+        if(r.msg.msg)
+        {
+          toast({
+            title: 'Cart',
+            description: r.msg.msg,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+        else
+        {
+          toast({
+            title: 'Error',
+            description: r.msg,
+            status: 'error',
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+        console.log(r)
+      })
+  }
+
+
+  const handleDelete=(productId)=>
+  {
+      dispatch(deleteCart(productId)).then(r=>
+        {
+          if(r.msg)
+          {
+            toast({
+              title: 'Cart',
+              description: r.msg,
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            })
+          }
+          else
+          {
+            toast({
+              title: 'Error',
+              description: r.msg,
+              status: 'error',
+              duration: 9000,
+              isClosable: true,
+            })
+          }
+          console.log(r)
+        })
+  }
 
   return (
     <>
@@ -87,12 +150,12 @@ const Cart = () => {
               </Heading>
 
               <Stack spacing="6">
-                {cart?.map((item) => (
+                {cart?.map((item,i) => (
                     <CartItem
-                      key={item.product._id}
-                      {...item.product}
-                      quantity={item.quantity}
-                      productId={item._id}
+                      key={i}
+                      item={item}
+                      handleChange={handleChange}
+                      handleDelete={handleDelete}
                     />
                   ))}
               </Stack>

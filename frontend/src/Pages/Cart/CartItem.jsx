@@ -10,7 +10,7 @@ import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
 import { useDispatch } from "react-redux";
 import {deleteCart, patchCart} from "../../Redux/Cart/action"
-export const CartItem = (props) => {
+export const CartItem = ({item,handleChange,handleDelete}) => {
   const {
     _id,
     product_name,
@@ -18,67 +18,10 @@ export const CartItem = (props) => {
     image,
     price,
     offer,
-    quantity,
-    onChangeQuantity,
-    onClickDelete,
-    productId
-  } = props;
+  } = item.product;
   const dispatch=useDispatch()
   const toast = useToast()
-  const handleChange=(quantity)=>
-  {
-    dispatch(patchCart({productId:productId,quantity:+quantity})).then(r=>
-      {
-        if(r.msg.msg)
-        {
-          toast({
-            title: 'Cart',
-            description: r.msg.msg,
-            status: 'success',
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-        else
-        {
-          toast({
-            title: 'Error',
-            description: r.msg,
-            status: 'error',
-            duration: 9000,
-            isClosable: true,
-          })
-        }
-      })
-  }
-
-
-  const handleDelete=()=>
-  {
-      dispatch(deleteCart(productId)).then(r=>
-        {
-          if(r.msg.msg)
-          {
-            toast({
-              title: 'Cart',
-              description: r.msg.msg,
-              status: 'success',
-              duration: 9000,
-              isClosable: true,
-            })
-          }
-          else
-          {
-            toast({
-              title: 'Error',
-              description: r.msg,
-              status: 'error',
-              duration: 9000,
-              isClosable: true,
-            })
-          }
-        })
-  }
+  
 
   return (
     <Flex
@@ -101,11 +44,11 @@ export const CartItem = (props) => {
         }}
       >
         <Select
-          defaultValue={quantity}
+          defaultValue={item.quantity}
           maxW="64px"
           aria-label="Select quantity"
           focusBorderColor={useColorModeValue("pink.500", "pink.200")}
-          onChange={(e)=>handleChange(e.target.value)}
+          onChange={(e)=>handleChange({productId:item._id,quantity:+e.target.value})}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -113,14 +56,14 @@ export const CartItem = (props) => {
           <option value="4">4</option>
         </Select>
         <PriceTag
-          quantity={quantity}
+          quantity={item.quantity}
           offer={offer}
           price={price}
           d_price={d_price}
         />
         <CloseButton
           aria-label={`Delete ${product_name} from cart`}
-          onClick={handleDelete}
+          onClick={()=>handleDelete(item._id)}
         />
       </Flex>
 
@@ -136,10 +79,11 @@ export const CartItem = (props) => {
         }}
       >
         <Select
-          value={quantity}
+          value={item.quantity}
           maxW="64px"
           aria-label="Select quantity"
           focusBorderColor={useColorModeValue("pink.500", "pink.200")}
+          onChange={(e)=>handleChange({productId:item._id,quantity:+e.target.value})}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -151,7 +95,7 @@ export const CartItem = (props) => {
         </Link>
 
         <PriceTag
-          quantity={quantity}
+          quantity={item.quantity}
           offer={offer}
           price={price}
           d_price={d_price}
