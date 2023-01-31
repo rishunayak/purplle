@@ -1,7 +1,12 @@
 ✨Purplle.com-Clone✨
 ---
-Purplle is an operator of an online beauty shopping store created to buy skincare products based on people's hair and skin type and other personal choices.
-<br/>
+#### Description:
+Purplle is a one stop solution for all your favourite beauty products, that too all under one roof. This platform not only keep all your favourite products but also you'll be able to buy all your favourite beauty products online at your convenience with best of the prices. There is plenty of options available to explore. Keep Calm & Stay Beautyful.
+
+---
+
+#### Screen shots of our project:
+<h5>Home Page</h5>
 <img width="700px" src="https://i.imgur.com/VZkMo6P.png"/>
 
 <h5>Sign up Page</h5>
@@ -23,8 +28,8 @@ Purplle is an operator of an online beauty shopping store created to buy skincar
 <h5>Profile Page</h5>
 <img width="700px" src="https://i.imgur.com/cfgO2hg.jpg" />
 
-This is a Group project completed by 6 members
 ---
+
 💫Tech & Tools Used :
 
 For Frontend : React , Javascript , Redux , React-credit-cards , React-dom , React-hot-toast , React-icons , React-multi-carousel , React-redux , React-router-dom,
@@ -35,3 +40,14 @@ For Backend : Mongo DB , NodeJS , Express
 Tools Used: Netlify.
 ---
 Deployed Link for Frontend : https://snazzy-cranachan-14966f.netlify.app/
+
+---
+
+#### Contributors:
+
+This project has been built by the following 6 members:
+ - Rishu kumar Nayak
+ - Sai
+ - Vivek Rana
+ - Vijay kumar
+ - Sanjay Rathva 
