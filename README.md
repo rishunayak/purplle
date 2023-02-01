@@ -28,7 +28,25 @@ Purplle is a one stop solution for all your favourite beauty products, that too 
 <h5>Profile Page</h5>
 <img width="700px" src="https://i.imgur.com/cfgO2hg.jpg" />
 
+#### Admin Home Page 
+<image src="https://media.discordapp.net/attachments/702481980025077853/1070254504974487612/image.png?width=1379&height=675"/>
+
+#### Admin Product Page 
+<image src="https://media.discordapp.net/attachments/702481980025077853/1070255133943943278/image.png?width=1373&height=675"/>
+
+#### Admin Users Page 
+<image src="https://media.discordapp.net/attachments/702481980025077853/1070255376315994142/image.png?width=1375&height=676"/>
+
+#### Admin User Detail Page 
+<image src="https://media.discordapp.net/attachments/702481980025077853/1070255767690682398/image.png?width=1368&height=675"/>
+
+#### Product Edit Page 
+<image src="https://media.discordapp.net/attachments/702481980025077853/1070256048654520350/image.png?width=1375&height=675"/>
+
+
+
 ---
+
 
 💫Tech & Tools Used :
 
@@ -41,6 +59,9 @@ Backend Tech Stack: Mongo DB , NodeJs and ExpressJs
 #### Deployment:
 
 Deployed Link for Frontend (Live!) : https://snazzy-cranachan-14966f.netlify.app/
+Deploayed Link For Admin Panel (Live!) :  https://jovial-puffpuff-6f9b28.netlify.app/    (chintu@hotmail.com || chintu@123)
+
+
 
 ---
 
