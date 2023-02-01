@@ -58,9 +58,10 @@ Backend Tech Stack: Mongo DB , NodeJs and ExpressJs
 
 #### Deployment:
 
-Deployed Link for Frontend (Live!) : https://snazzy-cranachan-14966f.netlify.app/  
+Deployed Link For Frontend (Live!) : https://snazzy-cranachan-14966f.netlify.app/  
 
-Deploayed Link For Admin Panel (Live!) :  https://jovial-puffpuff-6f9b28.netlify.app/    (chintu@hotmail.com || chintu@123)
+Deploayed Link For Admin Panel (Live!) :  https://jovial-puffpuff-6f9b28.netlify.app/   
+Admin Credentials: Email: chintu@hotmail.com ; Password: chintu@123
 
 
 
