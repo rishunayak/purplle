@@ -5,7 +5,7 @@ Purplle is a one stop solution for all your favourite beauty products, that too 
 
 ---
 
-#### Screen shots of our project :
+#### Screen shots of our project:
 <h5>Home Page</h5>
 <img width="700px" src="https://i.imgur.com/VZkMo6P.png"/>
 
